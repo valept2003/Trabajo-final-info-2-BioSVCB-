@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>407</width>
+    <height>296</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QToolBox" name="toolBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>381</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Fondo del contenido de cada pestaña */
+QToolBox QWidget {
+    background-color: #e1fbff;  /* Color del contenido abierto (celeste claro) */
+}
+
+/* Pestañas no seleccionadas */
+QToolBox::tab {
+    background: #c9f0ff;        /* Celeste pastel */
+    color: black;
+    font-weight: bold;
+    border: 1px solid #aaaaaa;
+    padding: 5px;
+}
+
+/* Pestaña seleccionada */
+QToolBox::tab:selected {
+    background: #87cefa;        /* Azul claro (puedes cambiar) */
+    color: black;
+    font-weight: bold;
+    border: 1px solid #1c8dc9;
+}
+
+</string>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="pagina_procesarimg">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>381</width>
+      <height>227</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <attribute name="label">
+     <string>Procesar Imagen</string>
+    </attribute>
+    <widget class="QPushButton" name="Boton_abririmagen">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>361</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Abrir imagen PNG/JPG</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelOriginal">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Mostrar imagen original</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelProcesada">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>30</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="lineWidth">
+      <number>8</number>
+     </property>
+     <property name="text">
+      <string>Mostrar imagen modificada</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="Combo_binarizacion">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>361</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="editable">
+      <bool>true</bool>
+     </property>
+     <property name="currentText">
+      <string/>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="maxVisibleItems">
+      <number>7</number>
+     </property>
+     <property name="duplicatesEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="modelColumn">
+      <number>0</number>
+     </property>
+     <item>
+      <property name="text">
+       <string/>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string/>
+      </property>
+     </item>
+    </widget>
+    <widget class="QSpinBox" name="spinKernel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>201</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="specialValueText">
+      <string>Tamaño del kernel (para morfología)</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Boton_aplicar">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>361</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Aplicar procesamiento</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Boton_guardar">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>200</y>
+       <width>361</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Guardar imagen procesada</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pagina_visualizarguardadas">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>381</width>
+      <height>227</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Visualizar Guardadas</string>
+    </attribute>
+    <widget class="QListWidget" name="listaImagenes">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>381</width>
+       <height>192</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelVistaGuardada">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>251</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Visualización de la imagen seleccionada</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Boton_cargarSeleccionada">
+     <property name="geometry">
+      <rect>
+       <x>14</x>
+       <y>60</y>
+       <width>351</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Cargar imagen seleccionada en el visor</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Boton_EliminarImagen">
+     <property name="geometry">
+      <rect>
+       <x>14</x>
+       <y>100</y>
+       <width>351</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string> Eliminar imagen de la lista/disco</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>451</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(225, 251, 252);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>toolBox</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
